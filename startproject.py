@@ -75,7 +75,7 @@ if __name__ == '__main__':
             raise ValueError(f'{key} setting cannot be empty.')
 
     output_folder = f"output_{replacements['project_slug']}"
-    copy_tree("django-project-template", output_folder)
+    copy_tree("project-template", output_folder)
     os.rename(f'{output_folder}/src/main_app_name', f'{output_folder}/src/{replacements["main_app_name"]}')
     for dname, dirs, files in os.walk(output_folder):
         for fname in files:
