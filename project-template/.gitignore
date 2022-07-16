@@ -13,4 +13,4 @@ __pycache__/
 site/
 .vscode
 db.sqlite3
-%%prod_env_files%%
+%%prod_env_gitignore_files%%

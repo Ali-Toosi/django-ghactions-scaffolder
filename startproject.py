@@ -60,7 +60,7 @@ prod_db_username = _("")
 prod_db_password = _("")
 
 # This goes into .gitignore - you probably won't need to change it
-prod_env_files = _(".env.prod*")
+prod_env_gitignore_files = _(".env.prod*")
 
 # The default email on certificates - goes in .env.prod.acme-companion
 cert_email = _("")
