@@ -1,0 +1,30 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Execute deploy command
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        KEY: ${{ secrets.SSH_KEY }}
+        script: |
+          mkdir -p %%server_deploy_folder%%
+          cd %%server_deploy_folder%%
+          cd repo/.. || git clone %%repo_clone_address%% repo
+          cd repo/ || exit
+          git pull
+          rm .env.prod*
+          rm .env.dev
+          rm .env.dev.db
+          echo '${{ secrets.ENV_PROD }}' | base64 -d > .env.prod
+          echo '${{ secrets.ENV_PROD_DB }}' | base64 -d > .env.prod.db
+          echo '${{ secrets.ENV_PROD_ACME_COMPANION }}' | base64 -d > .env.prod.acme-companion
+          docker-compose -f docker-compose.prod.yml up --build -d

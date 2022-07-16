@@ -1,0 +1,16 @@
+dist/
+*.egg-info
+build/
+venv/
+.idea/
+.python-version
+__pycache__/
+*.py[cod]
+*$py.class
+.DS_Store
+.AppleDouble
+.LSOverride
+site/
+.vscode
+db.sqlite3
+%%prod_env_files%%
