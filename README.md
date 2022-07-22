@@ -1,6 +1,9 @@
 # What is this?
 This scaffolder generates a containerized Django project with the given config ready to be deployed using gunicorn. It also uses Letsencrypt to provide SSL on the given domain name. Github Actions is used for the deployment pipeline and you'll need to put a few secrets in your pipeline to make it happen.
 
+### Prefer a quick demo video?
+[![Demo Video](https://img.youtube.com/vi/DteRpg62hn8/0.jpg)](https://www.youtube.com/watch?v=DteRpg62hn8)
+
 # Starting a project
 1. Clone this repo on your local then copy the `startproject.py` and give the copy a name - the name does not matter, we make the copy to keep the original unchanged in case we need to get back to it.
 2. Enter this new file (which from now on we'll call `project.py`) and set the value for all the variables wrapped in a `_("...value...")`. They all have enough comments but there is also a full list of them along with descriptions below in this document.
